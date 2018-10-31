@@ -1,14 +1,21 @@
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 
+//se agega compativilidad con  -std=c++14
+//atributo resivido es variable con una misma funcion gracias
+
 namespace VectorTools{
 
-    vector<int> reverse(vector<int> a){
+    //invierte un vector de  string
+    vector<string> reverse_string(vector<string> a){
 
-        vector<int> r;
+        
+        vector<string> r;
 
+        
         for(int i = a.size()-1;i >= 0;i--){
             
             r.push_back(a[i]);
@@ -17,15 +24,46 @@ namespace VectorTools{
         
         return r;
     }
+    //invierte un vector numerico
+    vector<int> reverse_int(vector<auto> a){
 
-    vector<int> removeItem(vector<int> a,int index){
+        
+        vector<int> r;
+
+        
+        for(int i = a.size()-1;i >= 0;i--){
+            
+            r.push_back(a[i]);
+
+        }
+        
+        return r;
+    }
+    
+
+    //elimina un item del vector  con index 
+    vector<int> removeItem(vector<auto> a,int index){
 
         a.erase (a.begin()+index);
 
         return a;
     }
 
-    int logV(vector<int> a){
+    //Convierte un vector de enteros a string   
+    string encodeString(vector<int> a){
+
+        string b;
+        
+        for(int  i = 0; i <= a.size()-1;i++){
+            string  c  = to_string(a[i]);
+            b += c;
+        }
+
+        return b;
+    }
+ 
+    //imiprime un vector con una separacion con un caracter
+    int logV(vector<auto> a){
 
         for(int i = 0; i <= a.size()-1;i++){
             cout<<a[i]<<"|";
@@ -39,6 +77,21 @@ namespace VectorTools{
 
 int main(int argc, char const *argv[])
 {
+
+    vector<string> palabra;
+
+    palabra.push_back("hola");
+    palabra.push_back("adios");
+
+    VectorTools::logV(palabra);
+
+    palabra = VectorTools::reverse_string(palabra);
+
+    VectorTools::logV(palabra);
+
+    cout<<VectorTools::encodeString(palabra)<<endl;
+    
+
     vector<int> a;
     vector<int> b;
 
@@ -50,13 +103,15 @@ int main(int argc, char const *argv[])
 
     VectorTools::logV(a);
 
-    b = VectorTools::reverse(a);
+    b = VectorTools::reverse_int(a);
 
 
     VectorTools::logV(b);
 
     //remove Item
     VectorTools::logV(VectorTools::removeItem(b,4));
+
+    
     
     return 0;
 }
