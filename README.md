@@ -4,7 +4,7 @@
 name spacestd VectorTools
 ```
 
-#reverse
+# reverse
 ```
 vector<int> a;
 a.push_back(0);
@@ -16,14 +16,14 @@ VectorTools::reverse(a);
 
 ```
 
-#removeItem
+# removeItem
 
 ```
 VectorTools::removeItem(a,0);
 
 //result 0
 ```
-#logV
+# logV
 ```
 VectorTools::logV(a);
 
